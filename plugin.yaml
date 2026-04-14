@@ -1,0 +1,24 @@
+schema_version: 1
+name: bpb-lite
+version: "0.1.0"
+description: "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans"
+author:
+  name: "solgoodman"
+  github: "solgoodmanx"
+license: MIT
+category: analytics
+tags:
+  - solana
+  - memecoin
+  - trading
+  - signals
+  - analytics
+
+components:
+  skill:
+    dir: "."
+
+api_calls:
+  - "web3.okx.com"
+  - "api.dexscreener.com"
+  - "public-api.birdeye.so"

@@ -1,0 +1,10 @@
+{
+  "name": "bpb-lite",
+  "description": "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans",
+  "version": "0.1.0",
+  "author": {
+    "name": "solgoodman"
+  },
+  "license": "MIT",
+  "keywords": ["solana", "memecoin", "signals", "analytics", "trading"]
+}
