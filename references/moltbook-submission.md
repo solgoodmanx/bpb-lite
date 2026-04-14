@@ -6,57 +6,58 @@ BPB Lite
 
 ## One-line pitch
 
-BPB Lite is an OKX OnchainOS-first AI-agent skill for fast Solana memecoin triage, turning a contract address into a compact market, platform, and momentum snapshot.
+BPB Lite is the public AI-agent workflow for Based Pings Bot, turning Solana market movement, launchpad context, wallet behavior, and token structure into early signal-ready reads.
 
 ## Short description
 
-BPB Lite helps AI agents scan Solana memecoins quickly and consistently. It converts a token contract address into a structured read covering market context, liquidity, attribution hints, confidence, and a simple signal tier such as EARLY, MOMENTUM, CONFIRMATION, or RISE.
+BPB, short for Based Pings Bot, is an automated Solana memecoin signal product focused on early entries, momentum recognition, and quality-filtered alerts. BPB Lite packages the public-facing intelligence layer of that system into a reusable OKX Build X Skill Arena workflow.
 
-Designed for the OKX Build X Skill Arena, BPB Lite is packaged as a reusable plugin-style workflow instead of a one-off app.
+It helps agents and operators understand why a token looks interesting by combining market context, volume movement, platform attribution, lock context, and wallet-aware signal framing in one compact read.
 
 ## Problem
 
-Solana token triage is often fragmented across launchpads, charts, explorers, and social search. That slows down research and makes first-pass decisions noisy for both operators and AI agents.
+Most Solana token research is scattered across launchpads, liquidity venues, explorers, and social search. That makes early signal recognition noisy and inconsistent.
 
 ## Solution
 
-BPB Lite gives agents a repeatable scan flow:
+BPB Lite gives agents a structured signal workflow:
 
-- resolve token identity from a Solana CA
-- pull market structure and liquidity context
-- add launch-source or venue hints when evidence exists
-- attach a confidence tier
-- classify the setup into a compact public signal label
-- return operator-ready links for follow-up
+- read market movement and volume behavior
+- frame early, momentum, or confirmation-style setups
+- attach launch-source and venue context
+- surface token quality clues such as locks and concentration
+- bring in wallet-aware smart-money context
+- return a compact explanation with evidence and links
 
 ## Why it fits Skill Arena
 
 - reusable agent workflow
-- natural-language friendly
-- easy to demo and install
-- grounded in OKX OnchainOS positioning
-- useful across trading, research, and discovery use cases
+- strong natural-language surface
+- installable plugin-style package
+- grounded in OKX OnchainOS as the main intelligence layer
+- useful for discovery, monitoring, and operator triage
 
 ## What makes it different
 
-- compact scan output built for agent workflows
-- evidence-based platform attribution instead of forced certainty
-- public confidence tiers for scan quality
-- practical coverage of launch-source versus liquidity-venue context
+- it is positioned as a **signal product**, not just a token lookup tool
+- it explains how momentum is building instead of only showing static fields
+- it separates launch source from downstream liquidity venue
+- it carries credible public features such as Streamflow lock reads and 1,000+ tracked wallet context without exposing private thresholds
 
 ## Feature set
 
 - Solana CA scanning
-- market snapshot
-- platform hints across Pumpfun, LaunchLab, Raydium, Bonk, Printr, and Meteora when detectable
-- public signal tiers: EARLY, MOMENTUM, CONFIRMATION, RISE
-- confidence tiers: High, Medium, Low
+- market snapshot and volume context
+- signal framing: EARLY, MOMENTUM, CONFIRMATION
+- platform context across Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE
+- confidence framing
+- wallet-aware and lock-aware context
 - research and trading links
 - optional direct Printr attribution when configured
 
 ## Demo blurb
 
-Paste a Solana contract address and BPB Lite returns a structured scan in one pass, including platform hint, market context, signal tier, confidence tier, and direct follow-up links.
+Paste a Solana contract address and BPB Lite returns a compact signal read with market structure, momentum context, launchpad attribution, confidence, and operator-ready follow-up links.
 
 ## Socials and links
 
@@ -70,5 +71,5 @@ Paste a Solana contract address and BPB Lite returns a structured scan in one pa
 - AI Agent
 - OnchainOS
 - Memecoin
-- Analytics
 - Signals
+- Analytics

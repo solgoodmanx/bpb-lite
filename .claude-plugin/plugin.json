@@ -1,6 +1,6 @@
 {
   "name": "bpb-lite",
-  "description": "AI-agent skill for Solana memecoin triage with market context, attribution hints, confidence tiers, and compact research output",
+  "description": "Public AI-agent workflow for Based Pings Bot, focused on Solana automated signals, volume insights, launchpad context, and compact research output",
   "version": "0.1.0",
   "author": {
     "name": "solgoodman",

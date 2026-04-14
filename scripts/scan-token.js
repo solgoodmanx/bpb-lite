@@ -136,6 +136,9 @@ export function inferPlatform({ ca, bestPair, printr }) {
   if (baseText.includes('bonk')) {
     return { platform: 'Bonk', note: 'Public pair metadata suggests Bonk ecosystem routing.', confidence: 'Medium' };
   }
+  if (baseText.includes('rise')) {
+    return { platform: 'RISE', note: 'Public market metadata suggests RISE platform context.', confidence: 'Medium' };
+  }
   if (baseText.includes('raydium')) {
     return { platform: 'Raydium', note: 'Public pair metadata suggests Raydium liquidity or routing.', confidence: 'Medium' };
   }
@@ -147,7 +150,7 @@ export function inferPlatform({ ca, bestPair, printr }) {
     };
   }
 
-  return { platform: 'Unknown', note: 'Available public evidence is not strong enough for confident platform attribution.', confidence: 'Low' };
+  return { platform: 'Unresolved', note: 'Current public evidence does not yet cleanly resolve the platform context.', confidence: 'Low' };
 }
 
 export function inferSignal(snapshot = {}) {
@@ -158,8 +161,7 @@ export function inferSignal(snapshot = {}) {
 
   if (mc > 0 && vol1h >= mc && liq >= 10000 && holders >= 150) return 'EARLY';
   if (mc > 0 && vol1h >= mc * 0.6 && liq >= 8000) return 'MOMENTUM';
-  if (mc > 0 && vol1h >= mc * 0.35) return 'CONFIRMATION';
-  return 'RISE';
+  return 'CONFIRMATION';
 }
 
 export function inferConfidence(snapshot = {}) {
@@ -176,8 +178,7 @@ export function inferConfidence(snapshot = {}) {
 function buildHeadline(signal) {
   if (signal === 'EARLY') return '🟣 EARLY';
   if (signal === 'MOMENTUM') return '🟢 MOMENTUM';
-  if (signal === 'CONFIRMATION') return '🔵 CONFIRMATION';
-  return '🟠 RISE';
+  return '🔵 CONFIRMATION';
 }
 
 function buildEvidence(snapshot) {
@@ -186,8 +187,9 @@ function buildEvidence(snapshot) {
   if (Number(snapshot.volume1hUsd) > Number(snapshot.marketCapUsd) && Number(snapshot.marketCapUsd) > 0) points.push('Volume is healthy relative to market cap');
   if (Number(snapshot.liquidityUsd) >= 10000) points.push('Liquidity is established enough for continued monitoring');
   if (Number(snapshot.holders) > 0 && Number(snapshot.holders) < 100) points.push('Holder count is still thin, so structure may be fragile');
-  if (points.length === 0) points.push('Attribution and structure remain partial from currently available public data');
-  return points;
+  if (snapshot.platform === 'RISE') points.push('Platform evidence suggests RISE context for this move');
+  if (points.length === 0) points.push('Current public evidence is still incomplete, but the market structure is readable enough for a first-pass signal view');
+  return [...new Set(points)];
 }
 
 function buildVerdict(snapshot) {
@@ -197,9 +199,9 @@ function buildVerdict(snapshot) {
   if (signal === 'EARLY') lines.push('Early traction is live and the public structure still looks reasonably intact.');
   else if (signal === 'MOMENTUM') lines.push('This looks like an active continuation phase rather than a cold starter.');
   else if (signal === 'CONFIRMATION') lines.push('Structure looks more established here, with less early asymmetry but cleaner confirmation.');
-  else lines.push('This reads more like a RISE-style continuation hint than a clean early entry.');
 
   if (platform === 'Printr') lines.push('Direct attribution supports treating Printr as the launch source in this read.');
+  if (platform === 'RISE') lines.push('Platform context points to RISE, which matters for how continuation and momentum are interpreted.');
   if (Number(volume1hUsd) > Number(marketCapUsd) && Number(liquidityUsd) >= 10000) lines.push('Volume is healthy relative to market cap and liquidity is non-trivial.');
   if (Number(holders) > 0 && Number(holders) < 100) lines.push('Holder count is still thin, so structure should be treated carefully.');
 

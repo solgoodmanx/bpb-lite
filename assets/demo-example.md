@@ -1,30 +1,41 @@
 # Demo Examples
 
-## 1) Printr-native example
-
-```bash
-node scripts/scan-token.js 29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
-```
-
-Expected public angle:
-- label as **Printr** if direct metadata confirms it
-- mention Meteora as downstream liquidity rail when relevant
-- keep the verdict compact and trader-readable
-
-## 2) Generic Pumpfun-style example
+## 1) Pumpfun early setup
 
 ```bash
 node scripts/scan-token.js DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 ```
 
-Expected public angle:
-- likely resolves as Pumpfun-style from pair metadata or mint shape
-- useful for EARLY / MOMENTUM / CONFIRMATION style reads
+Expected angle:
+- clear **Pumpfun** context
+- EARLY or MOMENTUM framing driven by live volume and structure
+- compact explanation for why BPB would care
 
-## 3) RISE-style continuation example
+## 2) Bonk ecosystem setup
 
-Use any actively expanding token where the public read no longer feels truly early.
+```bash
+node scripts/scan-token.js <bonk-ecosystem-solana-ca>
+```
 
-Expected public angle:
-- use **RISE** when the move looks alive but no longer deserves an early-entry label
-- frame it as a continuation-style read with lower asymmetry than a true early setup
+Expected angle:
+- identify Bonk-related platform or routing context when evidence exists
+- explain continuation quality through volume and structure
+
+## 3) Printr launch-source example
+
+```bash
+node scripts/scan-token.js 29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
+```
+
+Expected angle:
+- identify **Printr** directly when metadata confirms it
+- separate **Printr as launch source** from **Meteora as downstream liquidity venue** when both matter
+- explain why that attribution improves momentum interpretation
+
+## 4) RISE platform context example
+
+Use any token where public evidence points to **RISE**.
+
+Expected angle:
+- treat **RISE** as platform context, not a signal tier
+- explain how platform context helps frame continuation and momentum behavior

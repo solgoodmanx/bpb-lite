@@ -1,97 +1,141 @@
 # BPB Lite
 
-BPB Lite is an AI-agent skill for fast Solana memecoin triage.
+**BPB** stands for **Based Pings Bot**.
 
-Built for the OKX Build X Skill Arena, it turns a Solana contract address into a compact market snapshot with platform attribution hints, confidence framing, and research links. The project is designed for token discovery, research, and operator decision support.
+BPB is an automated Solana memecoin signal bot built to catch early and accurate entries by reading volume injections, momentum across specific time windows, liquidity and holder structure, smart-wallet behavior, and token-level risk context.
 
-## Why BPB Lite
+**BPB Lite** is the public plugin-style version of that product, built for the OKX Build X Skill Arena. It packages the signal and intelligence layer into an AI-agent workflow without exposing sensitive thresholds, private routing, or internal delivery logic.
 
-Memecoin research is usually fragmented across launchpads, charts, explorers, and social search. BPB Lite gives agents a cleaner first pass:
+## What BPB does
 
-- resolve a Solana token from its contract address
-- surface market structure and liquidity context
-- identify likely launch or liquidity venues when evidence exists
-- label the setup with a simple public signal tier
-- return evidence and follow-up links in one compact response
+Based Pings Bot is centered on automated signals and volume insight, not just static token lookup.
 
-## Core capabilities
+Publicly, BPB can be described as a system that:
+
+- tracks momentum and volume expansion across tight time windows
+- looks for early continuation and runner behavior
+- reads liquidity and concentration structure before surfacing a setup
+- uses more than **1,000 tracked wallets** as part of smart-money context
+- reads **Streamflow lock** state as part of token quality context
+- separates launch source from downstream liquidity venue when that distinction matters
+- supports filtered alerts for subscribers based on signal style and setup quality
+
+## What BPB Lite brings into public view
+
+BPB Lite gives AI agents a credible public version of that workflow:
 
 - Solana CA scanning
 - market snapshot, including MC, volume, liquidity, and age
-- platform hints across Pumpfun, LaunchLab, Raydium, Bonk, Printr, and Meteora
-- public signal tiers: **EARLY**, **MOMENTUM**, **CONFIRMATION**, **RISE**
-- evidence-based confidence framing
-- direct Printr attribution when available
-- clean operator links for DEX, explorer, and search follow-up
+- momentum framing based on volume and movement within meaningful windows
+- platform and launch-source attribution hints
+- support for launchpads and venues including **Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE** when evidence is available
+- confidence framing for attribution and market structure
+- research and operator follow-up links
 
-## Example scan
+## Product direction
+
+BPB Lite should read like a signal product, not a generic scanner.
+
+The public story is:
+
+- **BPB is a ping bot**
+- **BPB Lite is its public-facing intelligence layer**
+- the edge comes from combining market movement, timing, wallet behavior, and structure into earlier and cleaner signal reads
+
+We do not publish private thresholds or internal alert-routing rules, but we do say plainly what the system is built to observe.
+
+## Core signal language
+
+BPB focuses on publicly legible setup language such as:
+
+- **EARLY** for strong early structure
+- **MOMENTUM** for active expansion or continuation
+- **CONFIRMATION** for cleaner, more established follow-through
+
+That signal language sits alongside platform context. For example, **RISE** is a platform or launch context, not a signal tier.
+
+## Why the attribution matters
+
+One of the important public findings behind BPB Lite is that launch source and liquidity venue are not always the same thing.
+
+Examples:
+
+- **Printr** can be the launch source while **Meteora** is the downstream liquidity rail
+- **RISE** can be treated as a real platform context instead of being flattened into generic venue noise
+- that separation improves how momentum is interpreted and how early continuation is framed
+
+## Example, Pumpfun first
 
 ### Input
 
 ```text
-29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
+DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 ```
 
 ### Output
 
 ```text
 🟣 EARLY · BPB Lite
-BELIEF (BELIEF)
-CA: 29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
+LNMNMMMC (LeNewMemeNiceMayMayManCoin)
+CA: DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 
-📍 Platform: Printr
+📍 Platform: Pumpfun
 🎯 Confidence: High
-💰 MC: $42.0K
-📊 Vol 1h: $61.0K
-💧 Liq: $18.0K
-⏳ Age: 14m
+💰 MC: $25.6K
+📊 Vol 1h: $47.8K
+💧 Liq: $14.2K
+⏳ Age: 13m
 🧩 Pairs seen: 1
-👥 Holders: —
-🏦 Top10: —
-👀 Smart holders: —
+👥 Holders: 190
+🏦 Top10: 22.0%
+👀 Smart holders: 4
 
 Evidence
-• Direct Printr attribution resolved
-• Volume is healthy relative to market cap
-• Liquidity is established enough for continued monitoring
+• Volume expansion is strong relative to market cap
+• Liquidity is real enough for a live early setup
+• Holder structure is still within an acceptable public range
 
 Verdict
-Early traction is live and the current public structure still looks intact.
+Momentum is arriving early and the public structure still reads like a live first-leg opportunity rather than a late cleanup entry.
 
 Links
-DEX: https://dexscreener.com/solana/example
-Explorer: https://solscan.io/token/29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
-X Search: https://x.com/search?q=29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
+DEX: https://dexscreener.com/solana/2b34buxawe2gf6aj4qg6mzsgw5t16tcyk25xnkcffo3t
+Explorer: https://solscan.io/token/DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
+X Search: https://x.com/search?q=DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 ```
 
-## Platform attribution
+## Printr and RISE matter too
 
-BPB Lite uses evidence-based attribution and avoids overstating certainty.
+BPB Lite also highlights launch-source intelligence that simpler tools often miss.
 
-- **Printr** is used when direct token metadata confirms it
-- **Meteora** is used when public liquidity or rail evidence points there
-- **Unknown** is preferred over forced precision when evidence is weak
-
-## Confidence tiers
-
-BPB Lite adds a public confidence band to each scan:
-
-- **High**: direct attribution or multiple strong supporting signals
-- **Medium**: useful public context, but incomplete attribution
-- **Low**: weak attribution or sparse market structure
+- **Printr** is not just “Meteora again” when direct metadata confirms it
+- **RISE** can be treated as its own platform context for momentum and continuation analysis
+- this helps BPB explain *why* a move looks interesting, not just *that* it moved
 
 ## Data sources
 
-BPB Lite is positioned around **OKX OnchainOS** as its primary intelligence layer for the public Skill Arena story.
+BPB Lite is positioned around **OKX OnchainOS** as the primary public intelligence layer.
 
 Supporting sources include:
 
 - DexScreener for pair visibility and market context
-- Helius for optional Solana-native verification
-- Solscan for explorer follow-up
+- Helius for wallet and Solana-native verification
+- Solscan for operator follow-up
 - Printr preview API for direct attribution when configured
 
 See `references/data-sources.md` for the trust matrix.
+
+## Subscriber filters and alerts
+
+The full BPB product supports alert filtering by setup style and quality. Publicly, that means BPB can be described as supporting things like:
+
+- early-entry focused alerts
+- momentum continuation alerts
+- confirmation-style alerts
+- platform-aware filtering
+- quality filters driven by structure, locks, and wallet context
+
+BPB Lite focuses on the intelligence and explanation layer that powers those kinds of alerts.
 
 ## Installation
 
