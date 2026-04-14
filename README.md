@@ -2,67 +2,119 @@
 
 **BPB** stands for **Based Pings Bot**.
 
-BPB is an automated Solana memecoin signal bot built to catch early and accurate entries by reading volume injections, momentum across specific time windows, liquidity and holder structure, smart-wallet behavior, and token-level risk context.
+BPB is an automated Solana memecoin signal bot built to catch the earliest accurate entries possible by reading volume injections, time-window momentum, liquidity and holder structure, smart-wallet behavior, Streamflow locks, and launch-source context.
 
-**BPB Lite** is the public plugin-style version of that product, built for the OKX Build X Skill Arena. It packages the signal and intelligence layer into an AI-agent workflow without exposing sensitive thresholds, private routing, or internal delivery logic.
+**BPB Lite** is the public plugin-style version of that product, built for the OKX Build X Skill Arena. It exposes the signal intelligence layer of BPB in an installable AI-agent workflow without leaking private thresholds, routing logic, or internal delivery mechanics.
 
-## What BPB does
+## What BPB is
 
-Based Pings Bot is centered on automated signals and volume insight, not just static token lookup.
+BPB is not a generic scanner.
 
-Publicly, BPB can be described as a system that:
+It is a **ping and signal system** designed to surface tradable memecoin momentum early, explain why the setup matters, and filter out weaker structures before they become noise.
 
-- tracks momentum and volume expansion across tight time windows
-- looks for early continuation and runner behavior
-- reads liquidity and concentration structure before surfacing a setup
-- uses more than **1,000 tracked wallets** as part of smart-money context
-- reads **Streamflow lock** state as part of token quality context
-- separates launch source from downstream liquidity venue when that distinction matters
-- supports filtered alerts for subscribers based on signal style and setup quality
+Publicly, BPB can honestly say it is built to:
 
-## What BPB Lite brings into public view
+- detect **volume injections** across meaningful time windows
+- identify **early runner behavior** and continuation structure
+- interpret **momentum quality**, not just raw movement
+- read **liquidity, holder concentration, and token structure** before surfacing a setup
+- use more than **1,000 tracked wallets** for smart-money context
+- read **Streamflow lock** state as part of token-quality analysis
+- separate **launch source** from **downstream liquidity venue** when that distinction changes the read
+- support **subscriber-facing filtered alerts** by setup quality, platform context, and signal style
 
-BPB Lite gives AI agents a credible public version of that workflow:
+## What BPB Lite exposes
+
+BPB Lite gives agents and judges a strong public slice of that system:
 
 - Solana CA scanning
-- market snapshot, including MC, volume, liquidity, and age
-- momentum framing based on volume and movement within meaningful windows
-- platform and launch-source attribution hints
+- signal-oriented market snapshotting
+- volume and momentum framing across meaningful windows
+- platform and launch-source attribution
 - support for launchpads and venues including **Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE** when evidence is available
-- confidence framing for attribution and market structure
+- confidence framing for attribution and structure
 - research and operator follow-up links
 
-## Product direction
+## Why this matters
 
-BPB Lite should read like a signal product, not a generic scanner.
+A lot of memecoin tools can tell you a token exists.
 
-The public story is:
+BPB is built to tell you **why it deserves attention now**.
 
-- **BPB is a ping bot**
-- **BPB Lite is its public-facing intelligence layer**
-- the edge comes from combining market movement, timing, wallet behavior, and structure into earlier and cleaner signal reads
+That means the public story should still feel like a signal product:
 
-We do not publish private thresholds or internal alert-routing rules, but we do say plainly what the system is built to observe.
+- it looks for **movement with context**
+- it looks for **momentum with structure**
+- it looks for **early entries with reasons**, not just charts with numbers
+
+## How BPB thinks
+
+Publicly, BPB can describe its logic like this:
+
+### 1. Volume is the first sign of life
+BPB looks for meaningful **volume injections and movement within specific timeframes**, because that is often the earliest visible clue that a token is transitioning from dead air into real momentum.
+
+### 2. Momentum has shape, not just size
+A token moving is not enough. BPB cares about whether the move looks like:
+
+- early traction
+- runner behavior
+- healthy continuation
+- cleaner later confirmation
+
+That is why the public signal language stays focused on:
+
+- **EARLY**
+- **MOMENTUM**
+- **CONFIRMATION**
+
+### 3. Structure matters before a ping matters
+BPB checks whether the move is backed by enough real structure to be worth surfacing:
+
+- liquidity quality
+- concentration and holder distribution
+- smart-wallet presence
+- lock context
+- platform and launch-source context
+
+### 4. Platform context changes interpretation
+A token is not fully understood if you only know where liquidity sits.
+
+BPB separates:
+
+- where the token **launched**
+- where the token is **currently trading**
+
+That is why findings like **Printr vs Meteora** matter, and why **RISE** should be treated as platform context rather than some fake generic bucket.
+
+### 5. Alerts should be filterable, not noisy
+The full BPB product supports filtered alerts for subscribers. Publicly, that means BPB can describe itself as supporting things like:
+
+- early-entry focused alerts
+- momentum continuation alerts
+- confirmation-style alerts
+- platform-aware filtering
+- quality-aware filtering driven by structure, locks, and wallet context
 
 ## Core signal language
 
-BPB focuses on publicly legible setup language such as:
+BPB uses publicly legible signal framing:
 
 - **EARLY** for strong early structure
-- **MOMENTUM** for active expansion or continuation
+- **MOMENTUM** for active expansion or runner continuation
 - **CONFIRMATION** for cleaner, more established follow-through
 
-That signal language sits alongside platform context. For example, **RISE** is a platform or launch context, not a signal tier.
+That signal layer sits beside platform context. For example, **RISE** is a platform or launch context, not a signal tier.
 
-## Why the attribution matters
+## Why attribution matters
 
-One of the important public findings behind BPB Lite is that launch source and liquidity venue are not always the same thing.
+One of the stronger public findings behind BPB Lite is that launch source and liquidity venue are not always the same thing.
 
 Examples:
 
 - **Printr** can be the launch source while **Meteora** is the downstream liquidity rail
-- **RISE** can be treated as a real platform context instead of being flattened into generic venue noise
-- that separation improves how momentum is interpreted and how early continuation is framed
+- **RISE** can be treated as real platform context for continuation and momentum interpretation
+- that separation improves how the system explains *why* a move looks tradable
 
 ## Example, Pumpfun first
 
@@ -104,13 +156,13 @@ Explorer: https://solscan.io/token/DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 X Search: https://x.com/search?q=DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 ```
 
-## Printr and RISE matter too
+## Why BPB Lite is a strong Skill Arena fit
 
-BPB Lite also highlights launch-source intelligence that simpler tools often miss.
-
-- **Printr** is not just “Meteora again” when direct metadata confirms it
-- **RISE** can be treated as its own platform context for momentum and continuation analysis
-- this helps BPB explain *why* a move looks interesting, not just *that* it moved
+- it is a real **signal workflow**, not a thin lookup wrapper
+- it gives AI agents a repeatable way to interpret movement, structure, and launch context
+- it turns raw token noise into compact, operator-ready signal reads
+- it is installable, demoable, and technically legible
+- it is grounded in **OKX OnchainOS** as the primary public intelligence layer
 
 ## Data sources
 
@@ -121,21 +173,10 @@ Supporting sources include:
 - DexScreener for pair visibility and market context
 - Helius for wallet and Solana-native verification
 - Solscan for operator follow-up
+- Streamflow for lock context
 - Printr preview API for direct attribution when configured
 
 See `references/data-sources.md` for the trust matrix.
-
-## Subscriber filters and alerts
-
-The full BPB product supports alert filtering by setup style and quality. Publicly, that means BPB can be described as supporting things like:
-
-- early-entry focused alerts
-- momentum continuation alerts
-- confirmation-style alerts
-- platform-aware filtering
-- quality filters driven by structure, locks, and wallet context
-
-BPB Lite focuses on the intelligence and explanation layer that powers those kinds of alerts.
 
 ## Installation
 

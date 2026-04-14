@@ -6,50 +6,62 @@ BPB Lite
 
 ## One-line pitch
 
-BPB Lite is the public AI-agent workflow for Based Pings Bot, turning Solana market movement, launchpad context, wallet behavior, and token structure into early signal-ready reads.
+BPB Lite is the public AI-agent workflow for Based Pings Bot, transforming Solana volume injections, momentum structure, launchpad context, wallet behavior, and token-quality signals into early-entry intelligence.
 
 ## Short description
 
-BPB, short for Based Pings Bot, is an automated Solana memecoin signal product focused on early entries, momentum recognition, and quality-filtered alerts. BPB Lite packages the public-facing intelligence layer of that system into a reusable OKX Build X Skill Arena workflow.
+BPB, short for Based Pings Bot, is an automated Solana memecoin signal product focused on surfacing accurate early entries through momentum recognition, structure-aware filtering, and context-rich alerts.
 
-It helps agents and operators understand why a token looks interesting by combining market context, volume movement, platform attribution, lock context, and wallet-aware signal framing in one compact read.
+BPB Lite packages the public-facing intelligence layer of that system into a reusable OKX Build X Skill Arena workflow. It helps agents and operators understand why a token deserves attention by combining volume behavior, market structure, launch-source attribution, Streamflow lock context, and wallet-aware signal framing in one compact read.
 
 ## Problem
 
-Most Solana token research is scattered across launchpads, liquidity venues, explorers, and social search. That makes early signal recognition noisy and inconsistent.
+Solana memecoin decision-making is fragmented across launchpads, venues, explorers, wallets, and social search. That fragmentation makes early signal recognition noisy, delayed, and inconsistent.
 
 ## Solution
 
-BPB Lite gives agents a structured signal workflow:
+BPB Lite gives AI agents a structured signal engine that can:
 
-- read market movement and volume behavior
-- frame early, momentum, or confirmation-style setups
-- attach launch-source and venue context
-- surface token quality clues such as locks and concentration
-- bring in wallet-aware smart-money context
-- return a compact explanation with evidence and links
+- read **volume injections** and movement across meaningful windows
+- classify **EARLY**, **MOMENTUM**, and **CONFIRMATION** style setups
+- incorporate token-quality context like liquidity, holder structure, and Streamflow locks
+- interpret smart-money context from a large tracked-wallet layer
+- separate **launch source** from **downstream trading venue** when both matter
+- return a compact evidence-backed signal read with operator-ready follow-up links
+
+## Technical edge
+
+BPB Lite is designed to expose real public capabilities of the BPB system without leaking private thresholds.
+
+Publicly, it can credibly describe these capabilities:
+
+- **1,000+ tracked wallets** for smart-money context
+- **Streamflow lock** reading as part of token-quality interpretation
+- platform-aware coverage across **Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE**
+- launch-source versus liquidity-venue separation, including cases like **Printr -> Meteora**
+- filtered subscriber alert concepts based on setup style, structure quality, and platform context
 
 ## Why it fits Skill Arena
 
 - reusable agent workflow
-- strong natural-language surface
-- installable plugin-style package
-- grounded in OKX OnchainOS as the main intelligence layer
-- useful for discovery, monitoring, and operator triage
+- technically legible and installable
+- strong natural-language surface for operators and AI agents
+- grounded in **OKX OnchainOS** as the main public intelligence layer
+- turns fragmented onchain and market data into structured decision support
 
 ## What makes it different
 
-- it is positioned as a **signal product**, not just a token lookup tool
-- it explains how momentum is building instead of only showing static fields
-- it separates launch source from downstream liquidity venue
-- it carries credible public features such as Streamflow lock reads and 1,000+ tracked wallet context without exposing private thresholds
+- it is a **signal product**, not a static token lookup tool
+- it interprets **how momentum is forming**, not just what the latest numbers are
+- it combines movement, structure, attribution, locks, and wallet context in one read
+- it preserves platform nuance instead of flattening launchpads into generic venue labels
 
 ## Feature set
 
 - Solana CA scanning
 - market snapshot and volume context
-- signal framing: EARLY, MOMENTUM, CONFIRMATION
-- platform context across Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE
+- signal framing: **EARLY / MOMENTUM / CONFIRMATION**
+- platform context across **Pumpfun, Bonk, LaunchLab, Printr, Meteora, DBC, Raydium, and RISE**
 - confidence framing
 - wallet-aware and lock-aware context
 - research and trading links
@@ -57,7 +69,7 @@ BPB Lite gives agents a structured signal workflow:
 
 ## Demo blurb
 
-Paste a Solana contract address and BPB Lite returns a compact signal read with market structure, momentum context, launchpad attribution, confidence, and operator-ready follow-up links.
+Paste a Solana contract address and BPB Lite returns a compact signal read with volume and momentum interpretation, market structure, launchpad attribution, confidence, and operator-ready follow-up links.
 
 ## Socials and links
 
@@ -73,3 +85,4 @@ Paste a Solana contract address and BPB Lite returns a compact signal read with 
 - Memecoin
 - Signals
 - Analytics
+- Momentum

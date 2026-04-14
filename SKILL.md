@@ -37,6 +37,17 @@ BPB can be described publicly as a system that:
 6. separates launch source from downstream liquidity venue when needed
 7. supports subscriber-facing alert filters by setup style and quality
 
+## How BPB thinks
+
+Keep the explanation public-safe but strong:
+
+- start with **volume behavior and timing windows**
+- explain that **momentum has shape**, not just size
+- describe that BPB checks whether structure is strong enough to justify a ping
+- mention wallets, locks, and platform context as confidence-building layers
+- keep the signal framing anchored to **EARLY / MOMENTUM / CONFIRMATION**
+- treat **RISE** as platform context, not signal language
+
 ## When to use BPB Lite
 
 Use BPB Lite when the user says things like:
