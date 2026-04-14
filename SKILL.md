@@ -152,5 +152,5 @@ For hackathon context and positioning, keep these in mind:
 ## Social footnote
 
 - X: https://x.com/BasedPings
-- Telegram: https://t.me/BasedPingsBot
+- Telegram: https://t.me/BasedPingBot
 - OKX ref: https://web3.okx.com/join/BasedPings

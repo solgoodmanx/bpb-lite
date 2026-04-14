@@ -1,5 +1,9 @@
 # BPB Lite
 
+> **One-line pitch:** An OKX OnchainOS-first AI-agent skill for fast Solana memecoin signal triage, turning any contract address into a compact market, platform, and momentum snapshot.
+>
+> **Hackathon fit:** Built for the OKX Build X Skill Arena as a reusable plugin-style workflow, not a one-off app.
+
 BPB Lite is a lightweight AI-agent skill for fast Solana memecoin triage.
 
 It turns a Solana contract address into a structured scan with market context, holder concentration, launch/platform hints, signal labeling, and useful research links. It is designed for research and decision support, not autonomous mass-alerting.
@@ -129,7 +133,7 @@ This repo is structured as an OKX / Claude-style plugin skill package:
 ## Socials and links
 
 - X: https://x.com/BasedPings
-- Telegram: https://t.me/BasedPingsBot
+- Telegram: https://t.me/BasedPingBot
 - OKX ref: https://web3.okx.com/join/BasedPings
 
 ## License
