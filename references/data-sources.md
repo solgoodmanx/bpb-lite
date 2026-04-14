@@ -1,39 +1,39 @@
-# Data Sources
+# Data Sources and Trust Matrix
 
-BPB Lite is designed to work with public or partner-access market data sources that are commonly used in Solana token research.
+BPB Lite combines public market context with attribution-aware hints. The goal is not to force certainty, but to produce a compact scan with clear evidence.
 
-## Public positioning rule
+## Source posture
 
-For the OKX Build X Hackathon, the repo should read as **OKX OnchainOS-first**.
+For the public hackathon positioning, BPB Lite is presented as an **OKX OnchainOS-first** workflow.
 
-That means:
-- **OKX OnchainOS** is the primary intelligence layer and should lead the story
-- **DexScreener** is a pair-visibility and fallback layer
-- **Helius** is an optional Solana-native verification layer
-- **Solscan** is an explorer and operator trust layer
+Other sources support verification, discovery, and follow-up.
 
-## Primary sources
+## Trust matrix
 
-- OKX Web3 / OnchainOS market and token surfaces
-- DexScreener
-- Birdeye
+| Source | Role | Typical fields | Confidence impact | Notes |
+|---|---|---|---|---|
+| OKX OnchainOS | Primary intelligence layer | market structure, token context, trend framing | High | Main public-facing data story |
+| DexScreener | Market and pair visibility | liquidity, volume, market cap, pair URLs, age | Medium to High | Strong for public pair context |
+| Printr preview API | Direct attribution | launch source, token identity | High | Best source for confirmed Printr-native tokens |
+| Helius | Solana-native verification | holder and chain verification | Medium | Useful support layer, not the main story |
+| Solscan | Explorer follow-up | token page, transaction inspection | Low to Medium | Best used as operator follow-up |
+| X search | Discovery follow-up | contract search, social lookup | Low | Context only, not attribution proof |
 
-## Optional sources
+## Attribution policy
 
-- Helius for selective Solana-native verification
-- Launchpad-specific APIs where publicly documented, such as Printr
-- Explorer links such as Solscan
-- X search links for contract-address discovery
+- Use **Printr** when direct token metadata confirms it.
+- Use **Meteora** when public pair or rail evidence points to it.
+- Use **Unknown** when the evidence does not support a confident label.
+- Keep launch-source claims separate from liquidity-venue hints when both exist.
 
-## Notes
+## Reliability notes
 
-This public-lite version should prefer explainable, stable data paths over private production infrastructure.
+- Not every field is always available from public sources.
+- Confidence should fall when attribution is indirect or market structure is sparse.
+- The scanner should degrade gracefully and still produce a readable partial result.
 
-Do not make Helius or Solscan sound like the main edge. Keep the public story centered on OKX while still being honest about supporting verification layers.
+## Helpful references
 
-Helpful OKX references:
 - https://web3.okx.com/llms.txt
 - https://web3.okx.com/onchainos
 - https://github.com/okx/plugin-store/tree/main/skills/okx-buildx-hackathon-agent-track
-
-If a source is unavailable, the skill should degrade gracefully and still return a compact readable scan with whatever fields could be resolved.

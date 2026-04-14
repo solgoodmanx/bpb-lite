@@ -1,140 +1,142 @@
 # BPB Lite
 
-> **One-line pitch:** An OKX OnchainOS-first AI-agent skill for fast Solana memecoin signal triage, turning any contract address into a compact market, platform, and momentum snapshot.
->
-> **Hackathon fit:** Built for the OKX Build X Skill Arena as a reusable plugin-style workflow, not a one-off app.
+BPB Lite is an AI-agent skill for fast Solana memecoin triage.
 
-BPB Lite is a lightweight AI-agent skill for fast Solana memecoin triage.
+Built for the OKX Build X Skill Arena, it turns a Solana contract address into a compact market snapshot with platform attribution hints, confidence framing, and research links. The project is designed for token discovery, research, and operator decision support.
 
-It turns a Solana contract address into a structured scan with market context, holder concentration, launch/platform hints, signal labeling, and useful research links. It is designed for research and decision support, not autonomous mass-alerting.
+## Why BPB Lite
 
-For the OKX Build X Hackathon, the public positioning is intentionally **OKX OnchainOS first**: OKX is the primary intelligence layer, while public pair and explorer surfaces support verification and operator follow-up.
+Memecoin research is usually fragmented across launchpads, charts, explorers, and social search. BPB Lite gives agents a cleaner first pass:
 
-The public version also carries a few practical findings from live memecoin research:
+- resolve a Solana token from its contract address
+- surface market structure and liquidity context
+- identify likely launch or liquidity venues when evidence exists
+- label the setup with a simple public signal tier
+- return evidence and follow-up links in one compact response
 
-- **Printr should be treated as a launch source**, not flattened into generic Meteora
-- **Meteora often acts as the downstream liquidity rail**, not always the true origin
-- **RISE is useful as a public continuation-style read**, even when the private production system uses deeper tiering
-- The public repo still covers the normal Solana launch/platform surface, including **Pumpfun, LaunchLab, Raydium, Bonk, Printr, and Meteora** when public clues are available
+## Core capabilities
 
-## What it does
+- Solana CA scanning
+- market snapshot, including MC, volume, liquidity, and age
+- platform hints across Pumpfun, LaunchLab, Raydium, Bonk, Printr, and Meteora
+- public signal tiers: **EARLY**, **MOMENTUM**, **CONFIRMATION**, **RISE**
+- evidence-based confidence framing
+- direct Printr attribution when available
+- clean operator links for DEX, explorer, and search follow-up
 
-- Resolves a Solana token by contract address
-- Uses **OKX OnchainOS-aligned market and token intel** as the main public-facing data story
-- Pulls a compact market snapshot
-- Surfaces holder and liquidity structure when available
-- Adds launch source or platform hints when detectable
-- Covers common public Solana launch/platform hints like Pumpfun, LaunchLab, Raydium, Bonk, Printr, and Meteora
-- Assigns a simple public signal label: EARLY, MOMENTUM, CONFIRMATION, or RISE
-- Returns a short verdict plus research links
+## Example scan
 
-## What it is not
-
-BPB Lite is not the full Based Pings production system.
-
-It does not include private alert-routing, production thresholds, proprietary suppression logic, milestone re-pings, or any of the internal automation used in a live trading bot.
-
-## Intended use
-
-BPB Lite is best used when an agent or operator wants to quickly answer questions like:
-
-- "scan this CA"
-- "is this still early or already extended?"
-- "what platform did this come from?"
-- "give me a compact signal snapshot"
-
-## Example output
+### Input
 
 ```text
-EARLY · BPB Lite
+29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
+```
 
-Token: BELIEF (BELIEF)
+### Output
+
+```text
+🟣 EARLY · BPB Lite
+BELIEF (BELIEF)
 CA: 29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
-Platform: Printr
-MC: $42.0K
-Vol 1h: $61.0K
-Liq: $18.0K
-Age: 14m
-Pairs seen: 1
-Holders: —
-Top10: —
-Smart holders: —
 
-Verdict:
-Early traction is live and the public structure still looks reasonably intact. Printr attribution was confirmed directly, so this should not be flattened into generic Meteora-only identity.
+📍 Platform: Printr
+🎯 Confidence: High
+💰 MC: $42.0K
+📊 Vol 1h: $61.0K
+💧 Liq: $18.0K
+⏳ Age: 14m
+🧩 Pairs seen: 1
+👥 Holders: —
+🏦 Top10: —
+👀 Smart holders: —
 
-Platform note:
-Printr-native token. In our public read, Printr is the launch source and Meteora is the downstream liquidity rail when that migration shows up.
+Evidence
+• Direct Printr attribution resolved
+• Volume is healthy relative to market cap
+• Liquidity is established enough for continued monitoring
 
-Links:
+Verdict
+Early traction is live and the current public structure still looks intact.
+
+Links
 DEX: https://dexscreener.com/solana/example
 Explorer: https://solscan.io/token/29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
 X Search: https://x.com/search?q=29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr
 ```
 
-## Notes on platform attribution
+## Platform attribution
 
-BPB Lite keeps platform attribution modest and honest.
+BPB Lite uses evidence-based attribution and avoids overstating certainty.
 
-- If Printr resolves directly, it is labeled **Printr**
-- If public pair metadata mainly shows Meteora or DAMM rails, it is labeled **Meteora** as a platform hint
-- If neither is strong enough, the scan says **Unknown** instead of inventing precision
+- **Printr** is used when direct token metadata confirms it
+- **Meteora** is used when public liquidity or rail evidence points there
+- **Unknown** is preferred over forced precision when evidence is weak
 
-## Why this fits Skill Arena
+## Confidence tiers
 
-BPB Lite is shaped as a reusable agent workflow, not a one-off app.
+BPB Lite adds a public confidence band to each scan:
 
-- It gives agents a repeatable Solana token triage flow
-- It is easy to install and demo as a plugin skill
-- It visibly leans on **OKX OnchainOS** as the main intelligence layer
-- It keeps the public surface useful without exposing private production alerting logic
+- **High**: direct attribution or multiple strong supporting signals
+- **Medium**: useful public context, but incomplete attribution
+- **Low**: weak attribution or sparse market structure
 
-## Data source posture
+## Data sources
 
-The public story should stay simple and credible:
+BPB Lite is positioned around **OKX OnchainOS** as its primary intelligence layer for the public Skill Arena story.
 
-- **OKX OnchainOS** = primary intelligence layer
-- **DexScreener** = pair visibility and fallback context
-- **Helius** = optional Solana-native verification layer
-- **Solscan** = explorer deep-links for operator trust
+Supporting sources include:
 
-This repo should look clearly OKX-native without pretending every field comes from a single endpoint.
+- DexScreener for pair visibility and market context
+- Helius for optional Solana-native verification
+- Solscan for explorer follow-up
+- Printr preview API for direct attribution when configured
 
-## Setup
+See `references/data-sources.md` for the trust matrix.
+
+## Installation
 
 ### Optional environment setup
 
-If you want direct Printr attribution instead of public-only fallback, copy `.env.example` and set a valid preview bearer token.
-
-### OKX Plugin Store
-
-For the OKX Plugin Store flow, install the plugin-store tooling with:
+Copy `.env.example` if you want direct Printr attribution:
 
 ```bash
-npx skills add okx/plugin-store --skill plugin-store
+cp .env.example .env
 ```
 
-### Helpful OKX context
+### Plugin packaging
 
-For hackathon-aligned docs and agent context, keep these nearby:
-
-- `https://web3.okx.com/llms.txt`
-- `https://web3.okx.com/onchainos`
-- `https://github.com/okx/plugin-store/tree/main/skills/okx-buildx-hackathon-agent-track`
-
-## Packaging
-
-This repo is structured as an OKX / Claude-style plugin skill package:
+This repo includes:
 
 - `plugin.yaml`
 - `.claude-plugin/plugin.json`
 - `SKILL.md`
 
-## Socials and links
+## Development
 
-- X: https://x.com/BasedPings
-- Telegram: https://t.me/BasedPingBot
-- OKX ref: https://web3.okx.com/join/BasedPings
+Run the public scanner:
+
+```bash
+node scripts/scan-token.js <solana-contract-address>
+```
+
+Run tests:
+
+```bash
+npm test
+```
+
+## Project docs
+
+- `references/data-sources.md`
+- `references/moltbook-submission.md`
+- `SECURITY.md`
+- `CONTRIBUTING.md`
+
+## Socials
+
+- X: <https://x.com/BasedPings>
+- Telegram: <https://t.me/BasedPingBot>
+- OKX ref: <https://web3.okx.com/join/BasedPings>
 
 ## License
 

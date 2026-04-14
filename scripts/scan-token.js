@@ -108,11 +108,12 @@ function normalizeTextParts(parts = []) {
     .join(' ');
 }
 
-function inferPlatform({ ca, bestPair, printr }) {
+export function inferPlatform({ ca, bestPair, printr }) {
   if (printr?.id || printr?.tokenId) {
     return {
       platform: 'Printr',
-      note: 'Printr-native token. In our public read, Printr is the launch source and Meteora is the downstream liquidity rail when that migration shows up.',
+      note: 'Direct token metadata points to Printr as the launch source.',
+      confidence: 'High',
     };
   }
 
@@ -127,28 +128,29 @@ function inferPlatform({ ca, bestPair, printr }) {
   ]);
 
   if (baseText.includes('pumpfun') || ca.toLowerCase().endsWith('pump')) {
-    return { platform: 'Pumpfun', note: 'Pumpfun-style route detected from pair metadata or mint shape.' };
+    return { platform: 'Pumpfun', note: 'Public pair metadata suggests a Pumpfun-style route.', confidence: 'Medium' };
   }
   if (baseText.includes('launchlab')) {
-    return { platform: 'LaunchLab', note: 'LaunchLab hint detected from public pair metadata.' };
+    return { platform: 'LaunchLab', note: 'Public pair metadata suggests LaunchLab involvement.', confidence: 'Medium' };
   }
   if (baseText.includes('bonk')) {
-    return { platform: 'Bonk', note: 'Bonk ecosystem hint detected from public pair metadata.' };
+    return { platform: 'Bonk', note: 'Public pair metadata suggests Bonk ecosystem routing.', confidence: 'Medium' };
   }
   if (baseText.includes('raydium')) {
-    return { platform: 'Raydium', note: 'Raydium liquidity or route hint detected from public pair metadata.' };
+    return { platform: 'Raydium', note: 'Public pair metadata suggests Raydium liquidity or routing.', confidence: 'Medium' };
   }
   if (baseText.includes('meteora') || baseText.includes('damm')) {
     return {
       platform: 'Meteora',
-      note: 'Meteora liquidity rail detected. Public repo keeps this as a platform hint, while deeper launch-source attribution can sit above it.',
+      note: 'Public pair metadata points to Meteora as the current liquidity venue.',
+      confidence: 'Medium',
     };
   }
 
-  return { platform: 'Unknown', note: 'No strong launch/platform attribution resolved from public sources.' };
+  return { platform: 'Unknown', note: 'Available public evidence is not strong enough for confident platform attribution.', confidence: 'Low' };
 }
 
-function inferSignal(snapshot = {}) {
+export function inferSignal(snapshot = {}) {
   const mc = Number(snapshot.marketCapUsd ?? 0);
   const vol1h = Number(snapshot.volume1hUsd ?? 0);
   const liq = Number(snapshot.liquidityUsd ?? 0);
@@ -160,11 +162,32 @@ function inferSignal(snapshot = {}) {
   return 'RISE';
 }
 
+export function inferConfidence(snapshot = {}) {
+  if (snapshot.attributionConfidence === 'High') return 'High';
+  const mc = Number(snapshot.marketCapUsd ?? 0);
+  const vol1h = Number(snapshot.volume1hUsd ?? 0);
+  const liq = Number(snapshot.liquidityUsd ?? 0);
+  const holders = Number(snapshot.holders ?? 0);
+  if (mc > 0 && vol1h > 0 && liq >= 10000 && holders >= 150) return 'High';
+  if (mc > 0 && (vol1h > 0 || liq > 0)) return 'Medium';
+  return 'Low';
+}
+
 function buildHeadline(signal) {
   if (signal === 'EARLY') return '🟣 EARLY';
   if (signal === 'MOMENTUM') return '🟢 MOMENTUM';
   if (signal === 'CONFIRMATION') return '🔵 CONFIRMATION';
   return '🟠 RISE';
+}
+
+function buildEvidence(snapshot) {
+  const points = [];
+  if (snapshot.attributionConfidence === 'High' && snapshot.platform === 'Printr') points.push('Direct Printr attribution resolved');
+  if (Number(snapshot.volume1hUsd) > Number(snapshot.marketCapUsd) && Number(snapshot.marketCapUsd) > 0) points.push('Volume is healthy relative to market cap');
+  if (Number(snapshot.liquidityUsd) >= 10000) points.push('Liquidity is established enough for continued monitoring');
+  if (Number(snapshot.holders) > 0 && Number(snapshot.holders) < 100) points.push('Holder count is still thin, so structure may be fragile');
+  if (points.length === 0) points.push('Attribution and structure remain partial from currently available public data');
+  return points;
 }
 
 function buildVerdict(snapshot) {
@@ -176,9 +199,9 @@ function buildVerdict(snapshot) {
   else if (signal === 'CONFIRMATION') lines.push('Structure looks more established here, with less early asymmetry but cleaner confirmation.');
   else lines.push('This reads more like a RISE-style continuation hint than a clean early entry.');
 
-  if (platform === 'Printr') lines.push('Printr attribution was confirmed directly, so this should not be flattened into generic Meteora-only identity.');
-  if (Number(volume1hUsd) > Number(marketCapUsd) && Number(liquidityUsd) >= 10000) lines.push('Volume is healthy relative to MC and liquidity is at least non-trivial.');
-  if (Number(holders) > 0 && Number(holders) < 100) lines.push('Holder count is still thin, so treat structure as fragile.');
+  if (platform === 'Printr') lines.push('Direct attribution supports treating Printr as the launch source in this read.');
+  if (Number(volume1hUsd) > Number(marketCapUsd) && Number(liquidityUsd) >= 10000) lines.push('Volume is healthy relative to market cap and liquidity is non-trivial.');
+  if (Number(holders) > 0 && Number(holders) < 100) lines.push('Holder count is still thin, so structure should be treated carefully.');
 
   return lines.join(' ');
 }
@@ -205,6 +228,7 @@ async function buildScan(ca) {
     contractAddress: ca,
     platform: platformHint.platform,
     platformNote: platformHint.note,
+    attributionConfidence: platformHint.confidence,
     marketCapUsd: Number(bestPair?.marketCap ?? bestPair?.fdv ?? 0),
     volume1hUsd: Number(bestPair?.volume?.h1 ?? 0),
     liquidityUsd: Number(bestPair?.liquidity?.usd ?? 0),
@@ -217,22 +241,28 @@ async function buildScan(ca) {
   };
 
   snapshot.signal = inferSignal(snapshot);
+  snapshot.confidence = inferConfidence(snapshot);
+  snapshot.evidence = buildEvidence(snapshot);
   snapshot.verdict = buildVerdict(snapshot);
   snapshot.links = buildLinks(ca, bestPair);
 
-  return `${buildHeadline(snapshot.signal)} · BPB Lite\n${snapshot.symbol} (${snapshot.token})\nCA: ${snapshot.contractAddress}\n\n📍 Platform: ${snapshot.platform}\n💰 MC: ${fmtUsd(snapshot.marketCapUsd)}\n📊 Vol 1h: ${fmtUsd(snapshot.volume1hUsd)}\n💧 Liq: ${fmtUsd(snapshot.liquidityUsd)}\n⏳ Age: ${fmtAge(snapshot.ageMs)}\n🧩 Pairs seen: ${snapshot.pairCount}\n👥 Holders: ${snapshot.holders ?? '—'}\n🏦 Top10: ${snapshot.top10Pct != null ? fmtPct(snapshot.top10Pct) : '—'}\n👀 Smart holders: ${snapshot.smartHolders ?? '—'}\n\nVerdict\n${snapshot.verdict}\n\nPlatform note\n${snapshot.platformNote}\n\nLinks\n${snapshot.links}`;
+  return `${buildHeadline(snapshot.signal)} · BPB Lite\n${snapshot.symbol} (${snapshot.token})\nCA: ${snapshot.contractAddress}\n\n📍 Platform: ${snapshot.platform}\n🎯 Confidence: ${snapshot.confidence}\n💰 MC: ${fmtUsd(snapshot.marketCapUsd)}\n📊 Vol 1h: ${fmtUsd(snapshot.volume1hUsd)}\n💧 Liq: ${fmtUsd(snapshot.liquidityUsd)}\n⏳ Age: ${fmtAge(snapshot.ageMs)}\n🧩 Pairs seen: ${snapshot.pairCount}\n👥 Holders: ${snapshot.holders ?? '—'}\n🏦 Top10: ${snapshot.top10Pct != null ? fmtPct(snapshot.top10Pct) : '—'}\n👀 Smart holders: ${snapshot.smartHolders ?? '—'}\n\nEvidence\n${snapshot.evidence.map((line) => `• ${line}`).join('\n')}\n\nVerdict\n${snapshot.verdict}\n\nPlatform note\n${snapshot.platformNote}\n\nLinks\n${snapshot.links}`;
 }
 
-const ca = process.argv[2];
+const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
 
-if (!isLikelySolanaAddress(ca)) {
-  console.error('Usage: node scripts/scan-token.js <solana-contract-address>');
-  process.exit(1);
-}
+if (isMainModule) {
+  const ca = process.argv[2];
 
-buildScan(ca)
-  .then((output) => console.log(output))
-  .catch((error) => {
-    console.error(`BPB Lite scan failed: ${error.message}`);
+  if (!isLikelySolanaAddress(ca)) {
+    console.error('Usage: node scripts/scan-token.js <solana-contract-address>');
     process.exit(1);
-  });
+  }
+
+  buildScan(ca)
+    .then((output) => console.log(output))
+    .catch((error) => {
+      console.error(`BPB Lite scan failed: ${error.message}`);
+      process.exit(1);
+    });
+}
