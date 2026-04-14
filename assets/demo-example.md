@@ -27,4 +27,4 @@ Use any actively expanding token where the public read no longer feels truly ear
 
 Expected public angle:
 - use **RISE** when the move looks alive but no longer deserves an early-entry label
-- keep it as a public continuation-style bucket, not a leak of private production taxonomy
+- frame it as a continuation-style read with lower asymmetry than a true early setup

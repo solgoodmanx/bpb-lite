@@ -13,5 +13,5 @@
 - GitHub Actions CI
 
 ### Notes
-- BPB Lite is the public research surface, not the private production alerting engine
+- BPB Lite focuses on compact scan output for Solana token research and triage
 - Printr attribution is supported when direct metadata is available
