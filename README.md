@@ -14,6 +14,40 @@ Drop a Solana CA. Get a structured signal read back:
 
 One scan. One verdict. Operator-ready output.
 
+## Live product proof
+
+These screenshots show the product loop end to end: detection, alerting, continuation tracking, analytics, and post-call review.
+
+### 1. EARLY signal output
+
+This is the first proof point: BPB recognizes a live setup, frames the signal clearly, and gives the operator immediate action links.
+
+![BPB early signal ping](assets/screenshots/01-early-ping-stonks.jpg)
+
+### 2. Brand and product identity
+
+This gives the project a distinct face. It is not the core proof image, but it helps the repo read like a real shipped product instead of a sterile demo.
+
+![BPB branding art](assets/screenshots/02-brand-proof-jimmy.jpg)
+
+### 3. Milestone winner follow-through
+
+This shows BPB can keep tracking a name after the first call and surface milestone continuation instead of treating alerts as one-and-done events.
+
+![BPB milestone re-ping](assets/screenshots/03-milestone-neukgu.jpg)
+
+### 4. Leaderboard and analytics layer
+
+This is the operating dashboard view: outcome tracking, hit-rate summaries, and proof that calls are being measured over time.
+
+![BPB leaderboard analytics](assets/screenshots/04-leaderboard-analytics.jpg)
+
+### 5. Per-token performance review
+
+This closes the loop at the token level by showing ping price, current price, ATH, best possible return, and live follow-up context.
+
+![BPB performance card](assets/screenshots/05-performance-genz.jpg)
+
 ## What BPB is
 
 BPB is not a generic scanner.
@@ -172,6 +206,20 @@ X Search: https://x.com/search?q=DnutZjgbnLqj4gYEhphuxajJn1gC6W2rL9CX7fmLpump
 - it is installable, demoable, and technically legible
 - it is grounded in **OKX OnchainOS** as the primary public intelligence layer
 
+## How OKX fits the product
+
+OKX OnchainOS is the backbone of the public intelligence story.
+
+BPB uses OKX-aligned token and market intelligence to understand things like:
+
+- market structure and price context
+- liquidity and holder concentration
+- venue and platform clues
+- momentum state and continuation quality
+- the difference between something merely moving and something becoming tradable
+
+That matters because BPB is not trying to be a generic token encyclopedia. It is trying to help an operator or agent decide whether a setup deserves attention now.
+
 ## Data sources
 
 BPB Lite is positioned around **OKX OnchainOS** as the primary public intelligence layer.
@@ -224,6 +272,28 @@ npm test
 - `references/moltbook-submission.md`
 - `SECURITY.md`
 - `CONTRIBUTING.md`
+
+## Judge-facing summary
+
+**What it is**
+
+BPB Lite is the public AI-agent workflow for Based Pings Bot, an automated Solana signal product focused on early momentum detection, structure-aware filtering, and volume intelligence.
+
+**What judges can verify quickly**
+
+- live alert output
+- milestone continuation tracking
+- leaderboard analytics
+- per-token performance review
+- OKX-powered intelligence framing
+
+**Why it stands out**
+
+It combines movement, structure, attribution, wallet context, and lock context into one operator-ready read instead of forcing users to stitch together five tools by hand.
+
+**Why it feels real**
+
+The repo does not stop at theory. It shows the signal loop with real examples, readable outputs, and product surfaces that make sense to an operator immediately.
 
 ## Socials
 

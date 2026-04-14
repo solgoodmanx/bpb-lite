@@ -71,6 +71,32 @@ Publicly, it can credibly describe these capabilities:
 
 Paste a Solana contract address and BPB Lite returns a compact signal read with volume and momentum interpretation, market structure, launchpad attribution, confidence, and operator-ready follow-up links.
 
+The public repo also shows five live product screenshots covering:
+
+- a real EARLY ping
+- a branded product identity screen
+- a milestone re-ping on a winner
+- leaderboard analytics
+- a per-token performance card
+
+That gives judges evidence of discovery, signal quality, continuation tracking, analytics, branding, and product maturity.
+
+## Judge-facing proof loop
+
+The five screenshots together tell a simple story:
+
+1. BPB detects something early
+2. BPB presents the signal in a usable format
+3. BPB tracks strong names into milestone continuation
+4. BPB measures aggregate performance in a leaderboard view
+5. BPB explains token-level post-call outcomes in a dedicated card
+
+## Why OKX matters in this submission
+
+BPB Lite should be framed as OKX-powered signal intelligence, not just a generic scanner.
+
+OKX OnchainOS is the main public intelligence layer behind the workflow. It helps BPB interpret market structure, venue context, token state, and momentum conditions in a way that is useful for real operator decisions.
+
 ## Socials and links
 
 - X: https://x.com/BasedPings
