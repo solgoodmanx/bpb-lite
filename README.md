@@ -1,10 +1,18 @@
 # BPB Lite
 
-**BPB** stands for **Based Pings Bot**.
+**Early Solana signal intelligence. Powered by OKX OnchainOS.**
 
-BPB is an automated Solana memecoin signal bot built to catch the earliest accurate entries possible by reading volume injections, time-window momentum, liquidity and holder structure, smart-wallet behavior, Streamflow locks, and launch-source context.
+BPB (Based Pings Bot) catches tradable memecoin momentum before it becomes obvious. It reads volume injections, momentum shape, liquidity structure, smart-wallet behavior, Streamflow locks, and launch-source context — then tells you whether a setup is worth acting on and why.
 
-**BPB Lite** is the public plugin-style version of that product, built for the OKX Build X Skill Arena. It exposes the signal intelligence layer of BPB in an installable AI-agent workflow without leaking private thresholds, routing logic, or internal delivery mechanics.
+BPB Lite is the public skill version: a working signal workflow for AI agents, built for the OKX Build X Skill Arena.
+
+Drop a Solana CA. Get a structured signal read back:
+
+- Is momentum forming or already extended?
+- Is the structure clean enough to be real?
+- Where did this launch, and where is it trading now?
+
+One scan. One verdict. Operator-ready output.
 
 ## What BPB is
 
