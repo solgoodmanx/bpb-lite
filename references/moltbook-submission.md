@@ -55,6 +55,7 @@ Publicly, it can credibly describe these capabilities:
 - it interprets **how momentum is forming**, not just what the latest numbers are
 - it combines movement, structure, attribution, locks, and wallet context in one read
 - it preserves platform nuance instead of flattening launchpads into generic venue labels
+- it is also a **customizable delivery product**, letting subscribers get stricter by chat without weakening the house engine underneath
 
 ## Feature set
 
@@ -66,6 +67,7 @@ Publicly, it can credibly describe these capabilities:
 - wallet-aware and lock-aware context
 - research and trading links
 - optional direct Printr attribution when configured
+- subscriber-facing chat filters across alert tiers, platforms, market conditions, holder structure, and socials presence
 
 ## Demo blurb
 
@@ -80,6 +82,8 @@ The public repo also shows five live product screenshots covering:
 - a per-token performance card
 
 That gives judges evidence of discovery, signal quality, continuation tracking, analytics, branding, and product maturity.
+
+The repo now also shows the subscriber filter surface, including alert-type controls, platform toggles, market filters, holder-structure filters, and socials requirements. That matters because BPB is not only about generating signals, it is also about delivering the right subset of signals to the right operator.
 
 ## Judge-facing proof loop
 

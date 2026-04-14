@@ -229,6 +229,42 @@ BPB uses OKX-aligned token and market intelligence to understand things like:
 
 That matters because BPB is not trying to be a generic token encyclopedia. It is trying to help an operator or agent decide whether a setup deserves attention now.
 
+## Subscriber filters and delivery control
+
+BPB is not a one-size-fits-all alert feed.
+
+Subscribers can tune delivery at the chat level while the base engine and house rules continue running underneath. In public terms, that means BPB supports per-chat overrides across:
+
+- **alert tiers** like TURBO, EARLY, REVIVAL, MOMENTUM, CONFIRMATION, and WATCH
+- **platform toggles** across venues and launch contexts like Pumpfun, LaunchLab, Printr, Meteora, Raydium, Moonshot, Bonk, Jupiter, and RISE
+- **market filters** such as holders, volume, and age bands
+- **holder-structure filters** such as dev share, snipers, bundlers, top10 concentration, and smart holders
+- **social filters** such as linked tweet, website, and Telegram presence
+
+The important product point is that chat-level filters can get stricter for a subscriber, but they do not weaken the core house protections underneath.
+
+### Filter UX examples
+
+#### Alert-type controls
+
+![BPB alert type filters](assets/screenshots/filters/01-alert-types.jpg)
+
+#### Social requirements
+
+![BPB social filters](assets/screenshots/filters/02-socials.jpg)
+
+#### Platform toggles
+
+![BPB platform filters](assets/screenshots/filters/03-platforms.jpg)
+
+#### Market filters
+
+![BPB market filters](assets/screenshots/filters/04-market.jpg)
+
+#### Holder-structure filters
+
+![BPB holder structure filters](assets/screenshots/filters/05-holder-structure.jpg)
+
 ## Data sources
 
 BPB Lite is positioned around **OKX OnchainOS** as the primary public intelligence layer.
