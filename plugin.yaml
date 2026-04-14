@@ -1,7 +1,7 @@
 schema_version: 1
 name: bpb-lite
 version: "0.1.0"
-description: "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans"
+description: "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans, built for OKX Build X Skill Arena with OKX OnchainOS as the primary intelligence layer"
 author:
   name: "solgoodman"
   github: "solgoodmanx"
@@ -22,3 +22,5 @@ api_calls:
   - "web3.okx.com"
   - "api.dexscreener.com"
   - "public-api.birdeye.so"
+  - "api-preview.printr.money"
+  - "api.helius.xyz"

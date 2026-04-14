@@ -4,6 +4,8 @@ BPB Lite is a lightweight AI-agent skill for fast Solana memecoin triage.
 
 It turns a Solana contract address into a structured scan with market context, holder concentration, launch/platform hints, signal labeling, and useful research links. It is designed for research and decision support, not autonomous mass-alerting.
 
+For the OKX Build X Hackathon, the public positioning is intentionally **OKX OnchainOS first**: OKX is the primary intelligence layer, while public pair and explorer surfaces support verification and operator follow-up.
+
 The public version also carries a few practical findings from live memecoin research:
 
 - **Printr should be treated as a launch source**, not flattened into generic Meteora
@@ -14,6 +16,7 @@ The public version also carries a few practical findings from live memecoin rese
 ## What it does
 
 - Resolves a Solana token by contract address
+- Uses **OKX OnchainOS-aligned market and token intel** as the main public-facing data story
 - Pulls a compact market snapshot
 - Surfaces holder and liquidity structure when available
 - Adds launch source or platform hints when detectable
@@ -73,6 +76,26 @@ BPB Lite keeps platform attribution modest and honest.
 - If public pair metadata mainly shows Meteora or DAMM rails, it is labeled **Meteora** as a platform hint
 - If neither is strong enough, the scan says **Unknown** instead of inventing precision
 
+## Why this fits Skill Arena
+
+BPB Lite is shaped as a reusable agent workflow, not a one-off app.
+
+- It gives agents a repeatable Solana token triage flow
+- It is easy to install and demo as a plugin skill
+- It visibly leans on **OKX OnchainOS** as the main intelligence layer
+- It keeps the public surface useful without exposing private production alerting logic
+
+## Data source posture
+
+The public story should stay simple and credible:
+
+- **OKX OnchainOS** = primary intelligence layer
+- **DexScreener** = pair visibility and fallback context
+- **Helius** = optional Solana-native verification layer
+- **Solscan** = explorer deep-links for operator trust
+
+This repo should look clearly OKX-native without pretending every field comes from a single endpoint.
+
 ## Setup
 
 ### Optional environment setup
@@ -87,6 +110,14 @@ For the OKX Plugin Store flow, install the plugin-store tooling with:
 npx skills add okx/plugin-store --skill plugin-store
 ```
 
+### Helpful OKX context
+
+For hackathon-aligned docs and agent context, keep these nearby:
+
+- `https://web3.okx.com/llms.txt`
+- `https://web3.okx.com/onchainos`
+- `https://github.com/okx/plugin-store/tree/main/skills/okx-buildx-hackathon-agent-track`
+
 ## Packaging
 
 This repo is structured as an OKX / Claude-style plugin skill package:
@@ -94,6 +125,12 @@ This repo is structured as an OKX / Claude-style plugin skill package:
 - `plugin.yaml`
 - `.claude-plugin/plugin.json`
 - `SKILL.md`
+
+## Socials and links
+
+- X: https://x.com/BasedPings
+- Telegram: https://t.me/BasedPingsBot
+- OKX ref: https://web3.okx.com/join/BasedPings
 
 ## License
 

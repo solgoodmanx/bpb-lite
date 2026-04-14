@@ -1,6 +1,6 @@
 {
   "name": "bpb-lite",
-  "description": "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans",
+  "description": "Reusable AI-agent skill for Solana memecoin signal triage and structured token scans, built for OKX Build X Skill Arena with OKX OnchainOS as the primary intelligence layer",
   "version": "0.1.0",
   "author": {
     "name": "solgoodman"
