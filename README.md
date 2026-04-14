@@ -14,6 +14,15 @@ Drop a Solana CA. Get a structured signal read back:
 
 One scan. One verdict. Operator-ready output.
 
+## Start here in 30 seconds
+
+If you only read one section, read this.
+
+- **What it is:** an OKX-powered AI-agent workflow for Based Pings Bot, focused on early Solana signal detection
+- **What it does:** turns raw token movement into an operator-ready read with signal tier, structure context, attribution, and follow-up links
+- **What proves it:** the screenshots below show live pings, milestone follow-through, leaderboard analytics, and token-level performance review
+- **Why it matters:** BPB is built to surface tradable momentum early, not just describe tokens after the fact
+
 ## Live product proof
 
 These screenshots show the product loop end to end: detection, alerting, continuation tracking, analytics, and post-call review.
