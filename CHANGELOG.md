@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.1 - 2026-04-15
+
+### Changed
+- refactored the public scan pipeline into explicit modules for sources, platforms, signals, rendering, and shared utilities
+- made OKX, DexScreener, Helius, and Printr source lanes explicit in code instead of burying logic in one file
+- expanded public platform handling for Pumpfun, Bonk, Meteora, Bags, RISE, LaunchLab, and Raydium context
+- widened test coverage around platform inference and source adapter exposure
+
+### Notes
+- this release is aimed at making the public repo shape better reflect the actual BPB Lite architecture and fallback posture
+- OKX-first posture remains the headline production story, with DexScreener as support and Helius as Solana-native verification
+
 ## v0.1.0 - 2026-04-14
 
 ### Added
